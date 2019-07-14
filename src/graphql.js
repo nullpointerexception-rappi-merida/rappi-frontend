@@ -5,26 +5,26 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 
 const API_URL = 'https://node-graphql-rappi.lalo.now.sh/';
 
-const httpLink = createHttpLink ({
-    uri: API_URL
+const httpLink = createHttpLink({
+	uri: API_URL
 });
 
-const authLink = setContext( (_,{headers}) => {
+const authLink = setContext((_, { headers }) => {
 
-    const token = localStorage.getItem('rappiToken');
-    const context = {
-        headers:{
-            ...headers
-        }
-    }
+	const token = localStorage.getItem('rappiToken');
+	const context = {
+		headers: {
+			...headers
+		}
+	};
 
-    if(token) context.headers['authorization'] = `JWT ${token}`
+	if (token) context.headers['authorization'] = `JWT ${token}`;
 
-    return context
+	return context;
 });
 
 export default new ApolloClient({
-    link: authLink.concat(httpLink),
-    cache: new InMemoryCache()
-})
+	link: authLink.concat(httpLink),
+	cache: new InMemoryCache()
+});
 
