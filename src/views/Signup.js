@@ -6,10 +6,13 @@ import Input from '../components/Input';
 import useForm from '../hooks/useForms';
 
 const ADD_AUTHOR = gql `
-    mutation CreateAuthor($data:createAuthorInput!){
-        createAuthor(data:$data){
-            _id,
-            first_name
+    mutation createUser($data:createUserInput!){
+        createUser(data:$data){
+            _id
+            email
+            phone
+            password
+            isActive
         }
     }
 `
@@ -39,34 +42,6 @@ function Signup({history}){
                                 Rappi MID
                             </span>
 
-                            <div className="wrap-input100 validate-input" data-validate="First Name is Required">
-                                <Input name="first_name"
-                                    label="First Name"
-                                    placeholder="First Name"
-                                    type="text"
-                                    className="input100"
-                                    value={inputs.first_name}
-                                    onChange={handleInputChange}
-                                    required
-                                />
-                                <span className="focus-input100"></span>
-                                <span className="label-input100">First Name</span>
-                            </div>
-
-                            <div className="wrap-input100 validate-input" data-validate="First Name is Required">
-                                <Input name="last_name"
-                                    label="Last Name"
-                                    placeholder="Last Name"
-                                    type="text"
-                                    className="input100"
-                                    value={inputs.last_name}
-                                    onChange={handleInputChange}
-                                    required
-                                />
-                                <span className="focus-input100"></span>
-                                <span className="label-input100">Last Name</span>
-                            </div>
-
                             <div className="wrap-input100 validate-input" data-validate="Enter valid email address">
                                 <Input name="email"
                                         label="Email"
@@ -79,6 +54,20 @@ function Signup({history}){
                                     />
                                 <span className="focus-input100"></span>
                                 <span className="label-input100">Email</span>
+                            </div>
+
+                            <div className="wrap-input100 validate-input" data-validate="Enter a valid phone number">
+                                <Input name="phone"
+                                        label="Phone"
+                                        placeholder="Phone"
+                                        type="text"
+                                        className="input100"
+                                        value={inputs.phone}
+                                        onChange={handleInputChange}
+                                        required
+                                    />
+                                <span className="focus-input100"></span>
+                                <span className="label-input100">Phone</span>
                             </div>
 
                             <div className="wrap-input100 validate-input" data-validate="Password is required">
