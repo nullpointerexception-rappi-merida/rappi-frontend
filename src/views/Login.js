@@ -4,6 +4,8 @@ import Input from '../components/Input';
 import gql from 'graphql-tag';
 import { useMutation } from 'react-apollo-hooks';
 import useForm from '../hooks/useForms';
+import Background from '../images/bg-01.png';
+
 
 const LOGIN = gql`
     mutation LOGIN($email: String!, $password: String!){
@@ -12,6 +14,8 @@ const LOGIN = gql`
         }
     }
 `;
+
+
 
 
 function Login({history}){
@@ -25,7 +29,7 @@ function Login({history}){
 
         if(mutation){
             const { login } = mutation.data;
-            localStorage.setItem('rappiToken', login.token);
+            localStorage.setItem('token', login.token);
             history.push('/')
         }
     };
@@ -51,12 +55,12 @@ function Login({history}){
                                         type="email"
                                         className="input100"
                                         required/>
-                                <span class="focus-input100"></span>
-                                <span class="label-input100">Email</span>
+                                <span className="focus-input100"></span>
+                                <span className="label-input100">Email</span>
                             </div>
 
 
-                            <div class="wrap-input100 validate-input" data-validate="Password is required">
+                            <div className="wrap-input100 validate-input" data-validate="Password is required">
                                 <Input type="password" 
                                                 name="password"
                                                 label="Password"
@@ -65,8 +69,8 @@ function Login({history}){
                                                 value={inputs.password}
                                                 className="input100"
                                                 required/>
-                                <span class="focus-input100"></span>
-                                <span class="label-input100">Password</span>
+                                <span className="focus-input100"></span>
+                                <span className="label-input100">Password</span>
                             </div>
                             
 
@@ -96,7 +100,7 @@ function Login({history}){
 
                             <div className="text-center p-t-45 p-b-20">
                                 <span className="txt2">
-                                    <Link to={'/signup'} class="txt1">
+                                    <Link to={'/signup'} className="txt1">
                                         Sign Up
                                     </Link>
                                 </span>
@@ -105,7 +109,7 @@ function Login({history}){
 
                         </form>
 
-                        <div className="login100-more"></div>
+                        <div className="login100-more"  style={{ backgroundImage: `url(${Background})` }}></div>
                     </div>
                 </div>
             </div>

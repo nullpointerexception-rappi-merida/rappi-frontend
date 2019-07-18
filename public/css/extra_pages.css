@@ -1,5 +1,6 @@
 /*
  *  Document   : _extra_pages.scss
+ *  Author     : RedStar Theme
  *  Description: This scss file for extra pages like sign in, sign up etc.. style classes
  */
 .txt1 {
@@ -52,19 +53,13 @@
   align-items: stretch;
   flex-direction: row-reverse; }
 
-
-
-
 .login100-more {
   width: calc(100% - 560px);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   position: relative;
-  z-index: 1;
-  background-image: url('./images/bg-01.png');
-
-}
+  z-index: 1; }
 
 .login100-more::before {
   content: "";
@@ -450,7 +445,7 @@ input.input100 {
 .loginCard {
   width: 70%;
   margin: 10% auto;
-  
+  background-image: url("../../../assets/images/bg-01.jpg");
   min-height: 400px;
   position: relative;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28); }

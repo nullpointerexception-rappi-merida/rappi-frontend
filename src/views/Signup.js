@@ -4,8 +4,9 @@ import gql from 'graphql-tag';
 import { useMutation } from 'react-apollo-hooks';
 import Input from '../components/Input';
 import useForm from '../hooks/useForms';
+import Background from '../images/bg-02.png';
 
-const ADD_AUTHOR = gql `
+const ADD_USER = gql `
     mutation createUser($data:createUserInput!){
         createUser(data:$data){
             _id
@@ -18,7 +19,7 @@ const ADD_AUTHOR = gql `
 `
 function Signup({history}){
 
-    const [sendSingup, {error}] = useMutation(ADD_AUTHOR);
+    const [sendSingup, {error}] = useMutation(ADD_USER);
 
     const cathSubmit = async (fields) => {
         if(fields.password === fields.confirm_password){
@@ -115,7 +116,7 @@ function Signup({history}){
 
                         </form>
 
-                        <div className="login100-more"></div>
+                        <div className="login100-more" style={{ backgroundImage: `url(${Background})` }}></div>
                     </div>
                 </div>
             </div>

@@ -11,7 +11,7 @@ const httpLink = createHttpLink({
 
 const authLink = setContext((_, { headers }) => {
 
-	const token = localStorage.getItem('rappiToken');
+	const token = localStorage.getItem('token');
 	const context = {
 		headers: {
 			...headers
