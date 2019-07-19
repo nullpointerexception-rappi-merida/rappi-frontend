@@ -3,6 +3,7 @@ import { createHttpLink } from 'apollo-link-http';
 import { setContext } from 'apollo-link-context';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
+// const API_URL = 'http://localhost:4000/';
 const API_URL = 'https://node-graphql-rappi.lalo.now.sh/';
 
 const httpLink = createHttpLink({

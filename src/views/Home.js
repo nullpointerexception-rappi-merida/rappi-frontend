@@ -59,7 +59,11 @@ function Home() {
 									<h2>Rappi favores</h2>
 								</div>
 								<div className="col-auto">
-									<button type="button" className="btn btn-primary">Agregar Rappi Favor</button>
+									{/*<button type="button">*/}
+										<Link to="/create" className="btn btn-primary">
+											Agregar Rappi Favor
+										</Link>
+									{/*</button>*/}
 								</div>
 							</section>
 							<section className="row">

@@ -4,7 +4,7 @@ import isAuthenticated from './utils/IsAuthenticated';
 import Home from './views/Home';
 import Login from './views/Login';
 import Signup from './views/Signup';
-// import Create from './views/Create';
+import Create from './views/Create';
 import DeliveryService from './views/DeliveryService';
 
 
@@ -21,6 +21,7 @@ function Routes() {
 		<>
 			<Route exact path='/' component={Home}/>
 			<Route exact path="/delivery/:id" component={DeliveryService}/>
+			<Route exact path="/create" component={Create}/>
 			<Route exact path='/signup' component={Signup}/>
 			<Route exact path='/login' component={Login}/>
 			<Route exact path='/logout' component={SecureLogout}/>
