@@ -85,7 +85,7 @@ function Login({history}){
                                 </div>
 
                                 <div>
-                                    <a href="#" className="txt1">
+                                    <a className="txt1">
                                         Forgot Password?
                                     </a>
                                 </div>
