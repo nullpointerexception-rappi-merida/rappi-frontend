@@ -14,12 +14,14 @@ function Logout() {
 }
 
 const SecureLogout = isAuthenticated(Logout);
+const VerifyIfLoggedIn = isAuthenticated(Home);
+
 
 
 function Routes() {
 	return (
 		<>
-			<Route exact path='/' component={Home}/>
+			<Route exact path='/' component={VerifyIfLoggedIn}/>
 			<Route exact path="/delivery/:id" component={DeliveryService}/>
 			<Route exact path="/create" component={Create}/>
 			<Route exact path='/signup' component={Signup}/>
