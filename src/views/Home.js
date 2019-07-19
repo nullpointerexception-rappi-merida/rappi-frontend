@@ -1,6 +1,8 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import { useQuery } from 'react-apollo-hooks';
+import { Link } from 'react-router-dom';
+
 import Navbar from '../components/Navbar';
 import Header from '../components/Header';
 
@@ -79,9 +81,9 @@ function Home() {
 													<td>{info.delivery.origin.reference}</td>
 													<td>{info.delivery.destinations[0].reference}</td>
 													<td>{info.delivery.observations}</td>
-													<td>{info.dealer ? info.dealer.email : 'Have not been assigned yet'}</td>
+													<td>{info.dealer ? info.dealer.email : 'Has not been assigned yet'}</td>
 													<td>
-														View
+														<Link to={`/delivery/${info.delivery._id}`}>View</Link>
 													</td>
 												</tr>
 											))
