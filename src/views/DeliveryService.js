@@ -5,6 +5,7 @@ import { useQuery } from 'react-apollo-hooks';
 import Navbar from '../components/Navbar';
 import Header from '../components/Header';
 import PointPreview from '../components/PointPreview';
+import AcceptDeliveryServiceBtn from '../components/AcceptDeliveryServiceBtn';
 
 const GET_DELIVERY_SERVICE_BY_ID = gql`
     query getDeliveryService($id: ID!)  {
@@ -78,17 +79,19 @@ function DeliveryService({ match }) {
 				{/*Dealer:*/}
 				{
 					getDeliveryService.dealer ? (
-						<>
-							<div className="row mt-4">
-								<h4>El repartidor asignado es: </h4>
-							</div>
-							<div className="row">
-								<div className="col">
-									{getDeliveryService.dealer.email}
+							<>
+								<div className="row mt-4">
+									<h4>El repartidor asignado es: </h4>
 								</div>
-							</div>
-						</>
-					) : <h4>Not there</h4>
+								<div className="row">
+									<div className="col">
+										{getDeliveryService.dealer.email}
+									</div>
+								</div>
+							</>
+						) :
+						<AcceptDeliveryServiceBtn
+							deliveryID={getDeliveryService.delivery._id}/>
 				}
 				<section>
 

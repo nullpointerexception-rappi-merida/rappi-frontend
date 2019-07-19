@@ -90,11 +90,15 @@ function Home() {
 							<div className="col">
 								<h2>Rappi favores</h2>
 							</div>
-							<div className="col-auto">
-								<Link to="/create" className="btn btn-primary">
-									Agregar Rappi Favor
-								</Link>
-							</div>
+							{isCustomer ?
+								<>
+									<div className="col-auto">
+										<Link to="/create" className="btn btn-primary">
+											Agregar Rappi Favor
+										</Link>
+									</div>
+								</> : ''
+							}
 						</section>
 						<section className="row">
 							<div className="table-responsive">
