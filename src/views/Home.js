@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Header from '../components/Header';
 
-const MY_DELIVERYSERVICES = gql`
+const MY_DELIVERY_SERVICES = gql`
     query getMyDeliveryServices {
         listMyDeliveryServices {
             delivery {
@@ -37,7 +37,7 @@ const MY_DELIVERYSERVICES = gql`
 
 function Home() {
 
-	const { data, loading, error } = useQuery(MY_DELIVERYSERVICES);
+	const { data, loading, error } = useQuery(MY_DELIVERY_SERVICES);
 	if (error) {
 		console.log('Error: ', error);
 		return <h4>Internal Server Error</h4>;
