@@ -4,7 +4,7 @@ import Input from '../components/Input';
 import gql from 'graphql-tag';
 import { useMutation } from 'react-apollo-hooks';
 import useForm from '../hooks/useForms';
-import Background from '../images/bg-01.png';
+import Background from '../images/bg_img3.jpg';
 
 
 const LOGIN = gql`
@@ -43,13 +43,13 @@ function Login({history}){
                     <div className="wrap-login100">
                         <form className="login100-form validate-form" onSubmit={handleSubmit}>
                             <span className="login100-form-title p-b-45">
-                                Rappi MID
+                                Rappifavores
                             </span>
 
                             <div className="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
                                     <Input name="email"
                                         label="Email"
-                                        placeholder="Email"
+                                        placeholder=""
                                         value={inputs.email}
                                         onChange={handleInputChange}
                                         type="email"
@@ -64,7 +64,7 @@ function Login({history}){
                                 <Input type="password" 
                                                 name="password"
                                                 label="Password"
-                                                placeholder="Password"
+                                                placeholder=""
                                                 onChange={handleInputChange}
                                                 value={inputs.password}
                                                 className="input100"

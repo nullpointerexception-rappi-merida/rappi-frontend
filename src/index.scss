@@ -1,2 +1,12 @@
+@import "./scss/variables.scss";
+
 @import '~bootstrap/scss/bootstrap.scss';
-@import './scss/dashboard.scss'
+@import './scss/dashboard.scss';
+
+@import "./scss/mixins.scss";
+@import "./scss/global.scss";
+@import "./scss/utilities.scss";
+@import "./scss/navbar.scss";
+@import "./scss/cards.scss";
+@import "./scss/login.scss";
+@import "./scss/footer.scss";

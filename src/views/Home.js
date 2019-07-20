@@ -3,8 +3,9 @@ import gql from 'graphql-tag';
 import { useQuery } from 'react-apollo-hooks';
 import { Link } from 'react-router-dom';
 
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar2';
 import Header from '../components/Header';
+import Sidebar from '../components/Sidebar';
 import payload from '../utils/payload';
 
 const MY_DELIVERY_SERVICES = gql`
@@ -80,69 +81,58 @@ function Home() {
 	let deliveryServices = isCustomer ? data.listMyDeliveryServices : data.listDeliveryServicesAsDealer;
 	return (
 		<>
+			
+			<Navbar />
+			<Sidebar isCustomer={isCustomer} />
+			<div id="wrapper">
+				<div id="content-wrapper">
+				<div className="container">
+					<div className="row">
+						<main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+							<section className="row">
+								<div className="table-responsive">
+									<table className="table table-striped">
+										<thead>
+										<tr>
+											<th scope="col">Origen</th>
+											<th scope="col">Destino</th>
+											<th scope="col">Favor</th>
+											<th scope="col">{isCustomer ? 'Repartidor' : 'Cliente'}</th>
+											<th scope="col">Opciones</th>
+										</tr>
+										</thead>
+										<tbody>
+										{
+											deliveryServices.map((info, i) => (
+												<tr key={i}>
+													<td>{info.delivery.origin.reference}</td>
+													<td>{info.delivery.destinations[0].reference}</td>
+													<td>{info.delivery.observations}</td>
+													{
+														isCustomer ? <>
+																<td>{info.dealer ? info.dealer.email : 'Has not been assigned yet'}</td>
+																<td>
+																	<Link to={`/delivery/${info.delivery._id}`}>View</Link>
+																</td>
+															</> :
+															<>
+																<td>{info.customer.email}</td>
+																<td>
+																	<Link to={`/delivery/${info.delivery._id}`}>View</Link>
+																</td>
+															</>
+													}
+												</tr>
+											))
+										}
+										</tbody>
 
-			<Navbar/>
-			<div className="container-fluid">
-				<div className="row">
-					<Header/>
-					<main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-						<section className="row">
-							<div className="col">
-								<h2>Rappi favores</h2>
-							</div>
-							{isCustomer ?
-								<>
-									<div className="col-auto">
-										<Link to="/create" className="btn btn-primary">
-											Agregar Rappi Favor
-										</Link>
-									</div>
-								</> : ''
-							}
-						</section>
-						<section className="row">
-							<div className="table-responsive">
-								<table className="table table-striped">
-									<thead>
-									<tr>
-										<th scope="col">Origen</th>
-										<th scope="col">Destino</th>
-										<th scope="col">Favor</th>
-										<th scope="col">{isCustomer ? 'Repartidor' : 'Cliente'}</th>
-										<th scope="col">Opciones</th>
-									</tr>
-									</thead>
-									<tbody>
-									{
-										deliveryServices.map((info, i) => (
-											<tr key={i}>
-												<td>{info.delivery.origin.reference}</td>
-												<td>{info.delivery.destinations[0].reference}</td>
-												<td>{info.delivery.observations}</td>
-												{
-													isCustomer ? <>
-															<td>{info.dealer ? info.dealer.email : 'Has not been assigned yet'}</td>
-															<td>
-																<Link to={`/delivery/${info.delivery._id}`}>View</Link>
-															</td>
-														</> :
-														<>
-															<td>{info.customer.email}</td>
-															<td>
-																<Link to={`/delivery/${info.delivery._id}`}>View</Link>
-															</td>
-														</>
-												}
-											</tr>
-										))
-									}
-									</tbody>
-
-								</table>
-							</div>
-						</section>
-					</main>
-
+									</table>
+								</div>
+							</section>
+						</main>
+					</div>
+				</div>
 				</div>
 			</div>
 		</>

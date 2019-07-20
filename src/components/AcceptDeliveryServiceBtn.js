@@ -10,7 +10,6 @@ const ACCEPT_DELIVERY_SERVICE = gql`
 
 `;
 
-
 function AcceptDeliveryServiceBtn({ deliveryID }) {
 	const [sendPost, { error }] = useMutation(ACCEPT_DELIVERY_SERVICE);
 	const catchDelivery = async () => {

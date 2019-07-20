@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 import { useMutation } from 'react-apollo-hooks';
 import Input from '../components/Input';
 import useForm from '../hooks/useForms';
-import Background from '../images/bg-02.png';
+import Background from '../images/bg_img.jpg';
 
 const ADD_USER = gql `
     mutation createUser($data:createUserInput!){
@@ -40,13 +40,13 @@ function Signup({history}){
                         <form className="login100-form validate-form" onSubmit={handleSubmit}>
 
                             <span className="login100-form-title p-b-45">
-                                Rappi MID
+                                Rappifavores
                             </span>
 
                             <div className="wrap-input100 validate-input" data-validate="Enter valid email address">
                                 <Input name="email"
                                         label="Email"
-                                        placeholder="Email"
+                                        placeholder=""
                                         type="email"
                                         className="input100"
                                         value={inputs.email}
@@ -60,7 +60,7 @@ function Signup({history}){
                             <div className="wrap-input100 validate-input" data-validate="Enter a valid phone number">
                                 <Input name="phone"
                                         label="Phone"
-                                        placeholder="Phone"
+                                        placeholder=""
                                         type="text"
                                         className="input100"
                                         value={inputs.phone}
@@ -74,7 +74,7 @@ function Signup({history}){
                             <div className="wrap-input100 validate-input" data-validate="Password is required">
                                 <Input name="password"
                                         label="Password"
-                                        placeholder="Password"
+                                        placeholder=""
                                         type="password"
                                         className="input100"
                                         value={inputs.password}
@@ -88,7 +88,7 @@ function Signup({history}){
                             <div className="wrap-input100 validate-input" data-validate="Password is required">
                                 <Input name="confirm_password"
                                         label="Confirm Password"
-                                        placeholder="Confirm Password"
+                                        placeholder=""
                                         type="password"
                                         className="input100"
                                         value={inputs.confirm_password}

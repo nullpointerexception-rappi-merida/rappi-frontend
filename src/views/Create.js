@@ -4,9 +4,11 @@ import { useMutation } from 'react-apollo-hooks';
 
 import useForm from '../hooks/useDeliveryForm';
 import Input from '../components/Input';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar2';
+import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 import isAuthenticated from '../utils/IsAuthenticated';
+import payload from '../utils/payload';
 
 const CREATE_DELIVERY_SERVICE = gql`
     mutation createDeliveryService($data: createDeliveryServiceInput!) {
@@ -32,6 +34,7 @@ const CREATE_DELIVERY_SERVICE = gql`
 
 function Create({ history }) {
 	const [sendPost, { error }] = useMutation(CREATE_DELIVERY_SERVICE);
+	const isCustomer = payload().user.type === 'CUSTOMER';
 
 	const catchDelivery = async (fields) => {
 		const customFields = {
@@ -68,8 +71,8 @@ function Create({ history }) {
 
 	return (
 		<>
-			<Navbar/>
-			<Header/>
+			<Navbar />
+			<Sidebar isCustomer={isCustomer} />
 			<main className="container mt-4">
 				<section className="row">
 					<div className="col-lg-8 col-md-10 mx-auto">
